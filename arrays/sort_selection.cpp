@@ -1,10 +1,10 @@
 // selection sort
 #include <iostream>
 
-void swap(int* i, int* j){
-	int temp = *i;
-	*i = *j;
-	*j = temp;
+void swap(int& i, int& j){
+	int temp = i;
+	i = j;
+	j = temp;
 }
 
 void selection_sort(int* a, int& n){
@@ -12,7 +12,7 @@ void selection_sort(int* a, int& n){
 		int min_idx = i;
 		for(int j=i+1; j<n; j++)
 			if(a[j]<a[min_idx]) min_idx = j;
-		swap(a+i, a+min_idx);
+		swap(a[i], a[min_idx]);
 	}
 }
 

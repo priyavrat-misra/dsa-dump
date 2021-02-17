@@ -1,0 +1,22 @@
+// generate all possible sub-arrays given an array
+# include <iostream>
+
+int main(){
+	int size;
+	std::cout << "Enter the size of the array: ";
+	std::cin >> size;
+	int* a = new int[size];
+	std::cout << "Enter the elements: ";
+	for(int i=0; i<size; i++)
+		std::cin >> a[i];
+	std::cout << "All possible sub-arrays of the given array are:" << std::endl;
+	for(int i=0; i<size; i++){
+		for(int j=i; j<size; j++){
+			std::cout << "[ ";
+			for(int k=i; k<=j; k++)
+				std::cout << a[k] << " ";
+			std::cout << "]" << std::endl;
+		}
+	}
+	delete[] a;
+}

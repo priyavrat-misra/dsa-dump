@@ -6,18 +6,19 @@ bool compare(int& a, int& b, bool& decr){
 	else return a>b;
 }
 
-void swap(int* i, int* j){
-	int temp = *i;
-	*i = *j;
-	*j = temp;
+void swap(int& i, int& j){
+	int temp = i;
+	i = j;
+	j = temp;
 }
 
 void bubble_sort(int* a, int& n, bool (&cmpr)(int&,int&,bool&)){
 	bool swapped, decr=false;
 	for(int i=0; i<n-1; i++){
+		swapped=false;
 		for(int j=0; j<n-i-1; j++)
 			if(cmpr(a[j], a[j+1], decr)){
-				swap(a+j, a+j+1);
+				swap(a[j], a[j+1]);
 				swapped = true;
 			}
 		if(!swapped) break;
