@@ -1,7 +1,7 @@
 // passing arrays to functions
 #include <iostream>
 
-void func_1d(int *A){}
+void func_1d(int *A){}  // or A[]
 void func_2d(int (*B)[3]){}  // or B[][3]
 void func_3d(int (*C)[3][2]){}  // or C[][3][2]
 int main(){
