@@ -1,6 +1,6 @@
 #include <iostream>
 
-int factorial(const int &n) {
+long long factorial(const int &n) {
 	if (n) {
 		return n * factorial(n-1);
 	} else {
@@ -10,10 +10,10 @@ int factorial(const int &n) {
 
 int main() {
 	int n;
-	std::cout << "Enter a positive integer: ";
+	std::cout << "Enter a natural number: ";
 	if (std::cin >> n && n >= 0) {
 		std::cout << n << "! = " << factorial(n) << std::endl;
 	} else {
-		std::cout << "That's not a positive integer!" << std::endl;
+		std::cout << "That's not a natural number!" << std::endl;
 	}
 }
