@@ -1,10 +1,10 @@
 #include <iostream>
 
-int main(){
+int main() {
 	int bin, dec = 0, p = 1;
 	std::cout << "Enter a binary no: ";
 	std::cin >> bin;
-	while(bin>0){
+	while (bin>0) {
 		dec += (bin%10)*p;
 		bin/=10;
 		p*=2;

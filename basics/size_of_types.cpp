@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main(){
+int main() {
 	std::cout << "size of bool: " << sizeof(bool) << std::endl;
 	std::cout << "size of char: " << sizeof(char) << std::endl;
 	std::cout << "size of short (int): " << sizeof(short) << std::endl;

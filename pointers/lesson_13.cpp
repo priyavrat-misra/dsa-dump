@@ -1,10 +1,10 @@
 // passing arrays to functions
 #include <iostream>
 
-void func_1d(int *A){}  // or A[]
-void func_2d(int (*B)[3]){}  // or B[][3]
-void func_3d(int (*C)[3][2]){}  // or C[][3][2]
-int main(){
+void func_1d(int *A) {}  // or A[]
+void func_2d(int (*B)[3]) {}  // or B[][3]
+void func_3d(int (*C)[3][2]) {}  // or C[][3][2]
+int main() {
 	int A[] = {1,2};
 	int B[][3] = {{1,2,3}, {2,2,1}};
 	int C[][3][2] = {

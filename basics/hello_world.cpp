@@ -1,6 +1,5 @@
-# include<iostream>
+#include <iostream>
 
-int main(){
+int main() {
 	std::cout << "Hello World!" << std::endl;
-	std::cin.get();
 }

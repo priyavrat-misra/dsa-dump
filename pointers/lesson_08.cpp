@@ -1,7 +1,7 @@
 // Pointers and Arrays
 #include <iostream>
 
-int main(){
+int main() {
 	int A[] = {2, 4, 5, 1, 9};
 	std::cout << "*A = " << *A << std::endl;  // 2
 	std::cout << "A = " << A << std::endl;  // base address

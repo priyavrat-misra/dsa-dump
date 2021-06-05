@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main(){
+int main() {
 	int a = 10;
 	int *p = &a;
 	std::cout << "a = " << a << std::endl;

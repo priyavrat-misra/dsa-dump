@@ -1,7 +1,7 @@
 // Pointers to Pointers
 #include <iostream>
 
-int main(){
+int main() {
 	int x = 5;
 	int *p = &x;
 	int **q = &p;

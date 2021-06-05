@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring>
 
-int main(){
+int main() {
 	char c[] = "Hello World!";
 	char d[] = {'H', 'e', 'l', 'l', 'o', '\0'};
 	std::cout << "c = " << c << std::endl;

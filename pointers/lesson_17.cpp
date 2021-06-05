@@ -2,31 +2,34 @@
 #include <iostream>
 #include <cmath>
 
-int compare(int a, int b){
-	if(a>b) return 1;
-	else return -1;
+bool compare(int& a, int& b) {
+	return a>b;
 }
-int abs_compare(int a, int b){
-	if(abs(a)>abs(b)) return 1;
-	else return -1;
+
+bool abs_compare(int& a, int& b) {
+	return abs(a)>abs(b);
 }
-void bubblesort(int *A, int n, int (*cmp)(int,int)){
+
+void bubblesort(int *A, int n, bool (*cmp)(int&, int&)) {
 	int temp;
-	for(int i=0; i<n; i++)
-		for(int j=0; j<n; j++){
-			if(cmp(A[j], A[j+1]) > 0){
+	for (int i=0; i<n-1; ++i) {
+		for (int j=0; j<n-i-1; ++j) {
+			if (cmp(A[j], A[j+1])) {
 				temp = A[j];
 				A[j] = A[j+1];
 				A[j+1] = temp;
 			}
 		}
+	}
 }
-void print(int *arr, int n){
-	for(int i=0; i<n; i++)
+
+void print(int *arr, int n) {
+	for(int i=0; i<n; ++i)
 		std::cout << arr[i] << "\t";
 	std::cout << std::endl;
 }
-int main(){
+
+int main() {
 	int A[] = {3, 2, 6, 5, 1, 4}, size;
 	size = sizeof(A)/sizeof(int);
 	bubblesort(A, size, compare);

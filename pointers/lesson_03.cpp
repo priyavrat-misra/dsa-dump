@@ -1,7 +1,7 @@
 // Pointer arithmetic
 #include <iostream>
 
-int main(){
+int main() {
 	int i = 10;
 	double d = 12.0;
 	int *ip = &i;

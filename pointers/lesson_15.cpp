@@ -1,16 +1,16 @@
 // Function Pointers
 #include <cstdio>
 
-int Add(int a, int b){
+int Add(int a, int b) {
 	return a + b;
 }
-void PrintHelloWorld(){
+void PrintHelloWorld() {
 	printf("Hello World!\n");
 }
-void Greet(char* name){
+void Greet(char* name) {
 	printf("Hello %s\n", name);
 }
-int main(){
+int main() {
 	int c;
 	int (*p)(int, int);	
 	p = Add;  // or &Add

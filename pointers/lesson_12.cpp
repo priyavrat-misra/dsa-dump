@@ -1,8 +1,9 @@
 // Pointers and 2D arrays
 #include <iostream>
 
-int main(){
+int main() {
 	int B[][3] = {{2, 3, 6}, {4, 5, 8}};
+	// or int B[][3] = {2, 3, 6, 4, 5, 8};
 	// int *p = B; (not possible)
 	int (*p)[3] = B;
 	std::cout << "B =\t" << B << std::endl;

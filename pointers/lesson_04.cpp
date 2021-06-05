@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include <cstdio>
 
-int main(){
+int main() {
 	int a = 1025;  // 00000000 00000000 00000100 00000001
 	int *p = &a;
 	printf("size of int = %ld bytes\n", sizeof(int));
