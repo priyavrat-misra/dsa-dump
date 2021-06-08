@@ -15,7 +15,7 @@ void reverse(int* a, int s) {
 int main() {
 	int size;
 	std::cout << "Enter the size of the array: ";
-	if (std::cin >> size & size>0) {
+	if (std::cin >> size && size>0) {
 		int* arr = new int[size];
 		std::cout << "Enter the elements: ";
 		for (int i=0; i<size; ++i)
