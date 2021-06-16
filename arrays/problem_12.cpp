@@ -51,15 +51,21 @@ int main() {
 	if (std::cin>>m>>n && m>0 && n>0) {
 		int* a = new int[m]; 
 		int* b = new int[n];
+		
 		std::cout << "Enter elements for the first array: ";
 		fill(a, m);
+		
 		std::cout << "Enter elements for the second array: ";
 		fill(b, n);
+		
 		std::cout << "The union of the two arrays is:";
 		uniontwo(a, b, m, n);
+		
 		std::cout << "The intersection of the two arrays is:";
 		intertwo(a, b, m, n);
-		delete[] a, b;
+		
+		delete[] a;
+		delete[] b;
 	} else {
 		std::cout << "Sizes must be positive." << std::endl;
 	}

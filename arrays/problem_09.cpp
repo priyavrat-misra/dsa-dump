@@ -2,7 +2,7 @@
 // https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1
 #include <iostream>
 
-void ins_sort(int a[], int& s) {
+void isort(int a[], int& s) {
 	int j, key;
 	for (int i=1; i<s; ++i) {
 		key = a[i];
@@ -28,7 +28,7 @@ int main() {
 		int k;
 		std::cout << "Enter k: ";
 		if (std::cin >> k && k>0 && k<=s+1) {
-			ins_sort(a, s);
+			isort(a, s);
 			std::cout << "kth smallest number is: " << a[k-1] << std::endl;	
 			std::cout << "kth largest number is: " << a[s-k] << std::endl;
 			delete[] a;	
