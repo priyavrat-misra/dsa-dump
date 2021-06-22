@@ -18,7 +18,7 @@ int main() {
 		std::cout << "The address of the elements are:" << std::endl;
 		for (int i=0; i<m; i++){
 			for (int j=0; j<n; j++)
-				std::cout << arr + i*n + j << " ";
+				std::cout << arr + i*n + j << " "; // or &a[i][j]
 			
 			std::cout << std::endl;
 		}

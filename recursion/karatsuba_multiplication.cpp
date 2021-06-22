@@ -97,7 +97,7 @@ std::string kmul(std::string& s1, std::string& s2) {
 		std::string bd = kmul(b, d);
 		std::string acplusbd = add(ac, bd);
 		
-		// ((a+b) * (c+d)) - (ac+bd)
+		// (a+b) * (c+d) - (ac+bd)
 		std::string adplusbc = sub(apbcpd, acplusbd);
 		
 		// 10^n * ac + 10^n/2 * adplusbc + bd
