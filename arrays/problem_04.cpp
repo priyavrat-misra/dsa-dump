@@ -1,4 +1,8 @@
-// maximum sub-array sum and maximum sum sub-array (not optimized)
+// maximum sub-array sum and maximum sum sub-array
+/* 
+ * approach: bruteforce
+ * running time: cubic
+ */
 #include <iostream>
 #include <climits> 
 

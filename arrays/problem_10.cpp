@@ -1,5 +1,10 @@
-// Sort a given array containing 0s, 1s and 2s. (aka Dutch national flag problem)
-// https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
+// Sort a given array containing 0s, 1s and 2s.
+/*
+ * source: https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
+ * aka Dutch national flag problem
+ * approach: two pointers
+ * running time: cubic
+ */
 #include <iostream>
 
 void swap(int& a, int& b) {

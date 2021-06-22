@@ -1,4 +1,8 @@
-// maximum sub-array sum and maximum sum sub-array (optimized)
+// maximum sub-array sum and maximum sum sub-array
+/* 
+ * approach: cumulative sum
+ * running time: quadratic
+ */
 #include <iostream>
 #include <climits>
 

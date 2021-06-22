@@ -1,4 +1,8 @@
 // generate all possible sub-arrays given an array
+/* 
+ * approach: bruteforce
+ * running time: cubic
+ */
 # include <iostream>
 
 int main() {

@@ -1,5 +1,9 @@
 // "K"th largest and smallest of an array
-// https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1
+/* 
+ * source: https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1
+ * approach: sorting
+ * running time: quadratic
+ */
 #include <iostream>
 
 void isort(int a[], int& s) {

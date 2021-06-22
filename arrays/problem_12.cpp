@@ -1,5 +1,9 @@
 // union and intersection of two sorted arrays
-// https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
+/*
+ * source: https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
+ * approach: bruteforce
+ * running time: linear
+ */
 #include <iostream>
 
 void fill(int* arr, int& s) {

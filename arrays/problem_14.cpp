@@ -1,5 +1,9 @@
 // minimize the maximum difference between heights
-// https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1
+/*
+ * source: https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1
+ * approach: sorting
+ * running time: quadratic
+ */
 #include <iostream>
 
 void sort(int* a, int& s) {

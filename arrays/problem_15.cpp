@@ -1,6 +1,8 @@
 // find the duplicate number
-// https://leetcode.com/problems/find-the-duplicate-number/
-// Note: solution uses sorting (inefficient approach)
+/* source: https://leetcode.com/problems/find-the-duplicate-number/
+ * approach: sorting
+ * running time: quadratic
+ */
 #include <iostream>
 
 void isort(int* a, int& n) {

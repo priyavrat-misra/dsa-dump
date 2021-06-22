@@ -1,4 +1,8 @@
 // maximum and minimum of an array
+/* 
+ * approach: bruteforce
+ * running time: linear
+ */
 #include <iostream>
 #include <climits>
 

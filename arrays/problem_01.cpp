@@ -1,4 +1,8 @@
-// reverse an array
+// reverse an array 
+/*
+ * approach: two pointers
+ * running time: linear
+ */
 #include <iostream>
 
 void reverse(int* a, int s) {

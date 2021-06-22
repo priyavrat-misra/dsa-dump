@@ -1,4 +1,8 @@
 // transpose a 2D array
+/* 
+ * approach: bruteforce
+ * running time: quadratic
+ */
 #include <iostream>
 
 int main() {

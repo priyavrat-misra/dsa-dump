@@ -1,4 +1,8 @@
-// maximum sub-array sum and maximum sum sub-array (Kadane's Algo)
+// maximum sub-array sum and maximum sum sub-array
+/* 
+ * approach: Kadane's algorithm
+ * running time: linear
+ */
 #include <iostream>
 
 int main() {

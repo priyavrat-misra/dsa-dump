@@ -1,4 +1,8 @@
 // cyclically rotate an array by k
+/* 
+ * approach: modulus
+ * running time: linear
+ */
 #include <iostream>
 
 int main() {

@@ -1,5 +1,9 @@
 // merge two sorted arrays without using extra space
-// https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1
+/*
+ * source: https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1
+ * approach: sorting
+ * running time: quadratic
+ */
 #include <iostream>
 
 bool swap(int& a, int& b) {
