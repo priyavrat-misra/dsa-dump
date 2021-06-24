@@ -3,17 +3,17 @@
 
 int* slice(int* a, int start, int end) {
 	int* s = new int[end-start];
-	for (int i=start; i<end; ++i)
+	for (int i = start; i < end; ++i)
 		s[i-start] = a[i];
 
 	return s;
 }
 
 unsigned int mergeNcount(int* a, int* left, int* right, int ls, int rs) {
-	int i=0, j=0;
-	unsigned int c=0;
-	while (i<ls && j<rs) {
-		if (left[i]>right[j]) {
+	int i = 0, j = 0;
+	unsigned int c = 0;
+	while (i < ls && j < rs) {
+		if (left[i] > right[j]) {
 			a[i+j] = right[j];
 			c += (ls-i);
 			++j;
@@ -22,11 +22,11 @@ unsigned int mergeNcount(int* a, int* left, int* right, int ls, int rs) {
 			++i;
 		}
 	}
-	while (i<ls) {
+	while (i < ls) {
 		a[i+j] = left[i];
 		++i;
 	}
-	while (j<rs) {
+	while (j < rs) {
 		a[i+j] = right[j];
 		++j;
 	}
@@ -38,7 +38,7 @@ unsigned int mergeNcount(int* a, int* left, int* right, int ls, int rs) {
 
 unsigned int divideNsort(int* a, int n) {
 	unsigned int c = 0;
-	if (n>1) {
+	if (n > 1) {
 		int mid = n/2;
 		int* left = slice(a, 0, mid);
 		int* right = slice(a, mid, n);
@@ -53,10 +53,10 @@ unsigned int divideNsort(int* a, int n) {
 int main() {
 	int n;
 	std::cout << "Enter size of the array: ";
-	if (std::cin>>n && n>0) {
+	if (std::cin >> n && n > 0) {
 		int* a = new int[n];
 		std::cout << "Enter the elements: ";
-		for (int i=0; i<n; ++i)
+		for (int i = 0; i < n; ++i)
 			std::cin >> a[i];
 
 		std::cout << "Number of inversions: "

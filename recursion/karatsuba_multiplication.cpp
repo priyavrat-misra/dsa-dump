@@ -11,7 +11,7 @@ bool minus(std::string& s) {
 }
 
 void ridzeros_(std::string& s) {
-	while (s.size()!=1 && s[0]=='0')
+	while (s.size() != 1 && s[0] == '0')
 		s.erase(s.begin());
 }
 
@@ -21,7 +21,7 @@ void addzeros_(std::string& s1, std::string& s2) {
 	else if (s1.size() < s2.size())
 		s1.insert(0, s2.size() - s1.size(), '0');
 
-	if (s1.size()!=1 && s1.size()%2) {
+	if (s1.size() != 1 && s1.size() % 2) {
 		s1.insert(0, 1, '0');
 		s2.insert(0, 1, '0');
 	}
@@ -39,11 +39,11 @@ std::string add(std::string& s1, std::string& s2) {
 		while (it1 != s1.rend()) {
 			i = int(*it1) + int(*it2) + carry - 2 * '0';
 			carry = 0;
-			if (i>9) {
+			if (i > 9) {
 				carry = 1;
 				i -= 10;
 			}
-			res.insert(0, 1, char(i+'0'));
+			res.insert(0, 1, char(i + '0'));
 			++it1;
 			++it2;
 		}
@@ -65,8 +65,8 @@ std::string sub(std::string& s1, std::string& s2) {
 		std::string::reverse_iterator it = s2.rbegin();
 		int i;
 		while (it != s2.rend()) {
-			i = 9 - (int(*it)-'0');
-			res.insert(0, 1, char(i+'0'));
+			i = 9 - (int(*it) - '0');
+			res.insert(0, 1, char(i + '0'));
 			++it;
 		}
 		res = add(res, one);
@@ -83,7 +83,7 @@ std::string kmul(std::string& s1, std::string& s2) {
 	if (s1.size() == 1) {
 		return std::to_string(std::stoi(s1) * std::stoi(s2));
 	} else {
-		int mid = s1.size()/2;
+		int mid = s1.size() / 2;
 		std::string a(s1, 0, mid);
 		std::string b(s1, mid, mid);
 		std::string c(s2, 0, mid);
@@ -97,11 +97,11 @@ std::string kmul(std::string& s1, std::string& s2) {
 		std::string bd = kmul(b, d);
 		std::string acplusbd = add(ac, bd);
 		
-		// (a+b) * (c+d) - (ac+bd)
+		// (a + b) * (c + d) - (ac + bd)
 		std::string adplusbc = sub(apbcpd, acplusbd);
 		
 		// 10^n * ac + 10^n/2 * adplusbc + bd
-		ac.append(2*mid, '0');
+		ac.append(2 * mid, '0');
 		adplusbc.append(mid, '0');
 		std::string t = add(ac, adplusbc);
 		
