@@ -16,6 +16,6 @@ int main() {
 		}
 		std::cout << n << (isPrime ? " is Prime." : " is not Prime.") << std::endl;
 	} else {
-		std::cout << "That's not a whole number!" << std::endl;
+		std::cerr << "That's not a whole number!" << std::endl;
 	}
 }

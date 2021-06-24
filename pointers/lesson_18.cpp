@@ -28,6 +28,6 @@ int main() {
 		delete[] arr;
 		arr = nullptr;
 	} else {
-		std::cout << "rows and columns count must be positive." << std::endl;
+		std::cerr << "rows and columns count must be positive." << std::endl;
 	}
 }

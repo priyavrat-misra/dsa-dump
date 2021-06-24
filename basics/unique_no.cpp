@@ -19,6 +19,6 @@ int main() {
 			std::cout << "No unique number present." << std::endl;
 		}
 	} else {
-		std::cout << "Number must be positive." << std::endl;
+		std::cerr << "Number must be positive." << std::endl;
 	}
 }

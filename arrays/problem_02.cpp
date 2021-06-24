@@ -29,6 +29,6 @@ int main() {
 		std::cout << "Smallest element: " << smallest << std::endl;
 		delete[] arr;
 	} else {
-		std::cout << "Size must be positive." << std::endl;
+		std::cerr << "Size must be positive." << std::endl;
 	}
 }

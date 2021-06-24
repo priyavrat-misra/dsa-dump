@@ -63,6 +63,6 @@ int main() {
 			  << divideNsort(a, n) << std::endl;
 		delete[] a;
 	} else {
-		std::cout << "Size must be positive." << std::endl;
+		std::cerr << "Size must be positive." << std::endl;
 	}
 }

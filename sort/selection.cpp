@@ -36,6 +36,6 @@ int main() {
 	
 		delete[] arr;
 	} else {
-		std::cout << "Size must be positive." << std::endl;
+		std::cerr << "Size must be positive." << std::endl;
 	}
 }

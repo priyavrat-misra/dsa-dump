@@ -42,6 +42,6 @@ int main() {
 			exit(0);
 		}
 	} else {
-		std::cout << "Size must be positive." << std::endl;
+		std::cerr << "Size must be positive." << std::endl;
 	}
 }

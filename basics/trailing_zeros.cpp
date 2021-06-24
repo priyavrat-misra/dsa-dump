@@ -11,6 +11,6 @@ int main() {
 
 		std::cout << "The number of trailing zeros in it's factorial is: " << z << std::endl;
 	} else {
-		std::cout << "That's not a natural number!" << std::endl;
+		std::cerr << "That's not a natural number!" << std::endl;
 	}
 }

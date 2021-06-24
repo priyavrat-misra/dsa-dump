@@ -14,6 +14,6 @@ int main() {
 		}
 		std::cout << std::endl;
 	} else {
-		std::cout << "That's not a natural number!" << std::endl;
+		std::cerr << "That's not a natural number!" << std::endl;
 	}
 }

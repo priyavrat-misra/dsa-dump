@@ -4,7 +4,7 @@
 int umax(int* a, int n) {
 	if (n > 1) {
 		int m = n / 2;
-		return a[m-1] < a[m] ? umax(a+m, n-m) : umax(a, m);
+		return a[m-1] < a[m] ? umax(a + m, n - m) : umax(a, m);
 	} else {
 		return *a;
 	}
@@ -21,6 +21,6 @@ int main() {
 		std::cout << "Max element: " << umax(a, n) << std::endl;
 		delete[] a;
 	} else {
-		std::cout << "Size must be positive." << std::endl;
+		std::cerr << "Size must be positive." << std::endl;
 	}
 }

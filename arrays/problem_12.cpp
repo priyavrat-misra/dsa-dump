@@ -71,6 +71,6 @@ int main() {
 		delete[] a;
 		delete[] b;
 	} else {
-		std::cout << "Sizes must be positive." << std::endl;
+		std::cerr << "Sizes must be positive." << std::endl;
 	}
 }

@@ -14,6 +14,6 @@ int main() {
 	if (std::cin >> n && n >= 0) {
 		std::cout << n << "! = " << factorial(n) << std::endl;
 	} else {
-		std::cout << "That's not a natural number!" << std::endl;
+		std::cerr << "That's not a natural number!" << std::endl;
 	}
 }
