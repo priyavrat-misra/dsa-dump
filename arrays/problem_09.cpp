@@ -8,10 +8,10 @@
 
 void isort(int a[], int& s) {
 	int j, key;
-	for (int i=1; i<s; ++i) {
+	for (int i = 1; i < s; ++i) {
 		key = a[i];
-		j = i-1;
-		while (j>=0 && a[j]>key) {
+		j = i - 1;
+		while (j >= 0 && a[j] > key) {
 			a[j+1] = a[j];
 			--j;
 		}
@@ -22,16 +22,16 @@ void isort(int a[], int& s) {
 int main() {
 	int s;
 	std::cout << "Enter the size of the array: ";
-	if (std::cin >> s && s>0) {
+	if (std::cin >> s && s > 0) {
 		int* a = new int[s];
 		
 		std::cout << "Enter the elements: ";
-		for (int i=0; i<s; ++i)
+		for (int i = 0; i < s; ++i)
 			std::cin >> a[i];
 
 		int k;
 		std::cout << "Enter k: ";
-		if (std::cin >> k && k>0 && k<=s+1) {
+		if (std::cin >> k && k > 0 && k <= s+1) {
 			isort(a, s);
 			std::cout << "kth smallest number is: " << a[k-1] << std::endl;	
 			std::cout << "kth largest number is: " << a[s-k] << std::endl;

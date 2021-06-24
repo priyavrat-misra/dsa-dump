@@ -4,7 +4,7 @@
 int umax(int* a, int n) {
 	if (n > 1) {
 		int m = n / 2;
-		return a[m-1] < a[m] ? umax(a+m, n-m) : umax(a, n-m-1);
+		return a[m-1] < a[m] ? umax(a+m, n-m) : umax(a, m);
 	} else {
 		return *a;
 	}

@@ -5,12 +5,12 @@ int main() {
 	float r = 0, inc = 1;
 
 	std::cout << "Enter a whole number: ";
-	if (std::cin >> n && n>=0) {
+	if (std::cin >> n && n >= 0) {
 		std::cout << "Enter the precision count: ";
 		std::cin >> p;
 
-		for (int i=0; i<=p; ++i) {
-			while (r*r<=n) {
+		for (int i = 0; i <= p; ++i) {
+			while (r*r <= n) {
 				r += inc;
 			}
 			r -= inc;

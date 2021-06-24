@@ -8,18 +8,18 @@
 int main() {
 	int size;
 	std::cout << "Enter the size of the array: ";
-	if (std::cin >> size && size>0) {
+	if (std::cin >> size && size > 0) {
 		int* a = new int[size];
 
 		std::cout << "Enter the elements: ";
-		for (int i=0; i<size; ++i)
+		for (int i = 0; i < size; ++i)
 			std::cin >> a[i];
 
 		std::cout << "All possible sub-arrays of the given array are:" << std::endl;
-		for (int i=0; i<size; ++i) {
-			for (int j=i; j<size; ++j) {
+		for (int i = 0; i < size; ++i) {
+			for (int j = i; j < size; ++j) {
 				std::cout << "[ ";
-				for (int k=i; k<=j; ++k)
+				for (int k = i; k <= j; ++k)
 					std::cout << a[k] << " ";
 				std::cout << "]" << std::endl;
 			}

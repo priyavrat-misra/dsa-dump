@@ -7,13 +7,13 @@
 #include <iostream>
 
 void fill(int* arr, int& s) {
-	for (int i=0; i<s; ++i)
+	for (int i = 0; i < s; ++i)
 		std::cin >> arr[i];
 }
 
 void uniontwo(int* a, int* b, int& m, int& n) {
-	int i=0, j=0;
-	while (i<m && j<n) {
+	int i = 0, j = 0;
+	while (i < m && j < n) {
 		if (a[i] < b[j])
 			std::cout << " " << a[i++];
 		else if (a[i] > b[j])
@@ -25,17 +25,17 @@ void uniontwo(int* a, int* b, int& m, int& n) {
 		}
 	}
 	
-	while (i<m)
+	while (i < m)
 		std::cout << " " << a[i++];
-	while (j<n)
+	while (j < n)
 		std::cout << " " << b[j++];
 	
 	std::cout << std::endl;
 }
 	
 void intertwo(int* a, int* b, int& m, int& n) {
-	int i=0, j=0;
-	while (i<m && j<n) {
+	int i = 0, j = 0;
+	while (i < m && j < n) {
 		if (a[i] < b[j])
 			++i;
 		else if (a[i] > b[j])
@@ -52,7 +52,7 @@ void intertwo(int* a, int* b, int& m, int& n) {
 int main() {
 	int m, n;
 	std::cout << "Enter sizes for 2 sorted arrays: ";
-	if (std::cin>>m>>n && m>0 && n>0) {
+	if (std::cin >> m >> n && m > 0 && n > 0) {
 		int* a = new int[m]; 
 		int* b = new int[n];
 		

@@ -3,16 +3,16 @@
 
 int* slice(int* a, int start, int end) {
 	int* sl = new int[end-start];
-	for (int i=start; i<end; ++i)
+	for (int i = start; i < end; ++i)
 		sl[i-start] = a[i];
 
 	return sl;
 }
 
 void merge(int* a, int* left, int* right, int ls, int rs) {
-	int i=0, j=0;
-	while (i<ls && j<rs) {
-		if (left[i]>right[j]) {
+	int i = 0, j = 0;
+	while (i < ls && j < rs) {
+		if (left[i] > right[j]) {
 			a[i+j] = right[j];
 			++j;
 		} else {
@@ -20,11 +20,11 @@ void merge(int* a, int* left, int* right, int ls, int rs) {
 			++i;
 		}
 	}
-	while (i<ls) {
+	while (i < ls) {
 		a[i+j] = left[i];
 		++i;
 	}
-	while (j<rs) {
+	while (j < rs) {
 		a[i+j] = right[j];
 		++j;
 	}
@@ -34,8 +34,8 @@ void merge(int* a, int* left, int* right, int ls, int rs) {
 }
 
 void msort(int* a, int n) {
-	if (n>1) {
-		int mid = n/2;
+	if (n > 1) {
+		int mid = n / 2;
 		int* left = slice(a, 0, mid);
 		int* right = slice(a, mid, n);
 
@@ -48,16 +48,16 @@ void msort(int* a, int n) {
 int main() {
 	int n;
 	std::cout << "Enter size of the array: ";
-	if (std::cin>>n && n>0) {
+	if (std::cin >> n && n > 0) {
 		int* a = new int[n];
 		std::cout << "Enter the elements: ";
-		for (int i=0; i<n; ++i)
+		for (int i = 0; i < n; ++i)
 			std::cin >> a[i];
 
 		msort(a, n);
 		
 		std::cout << "The sorted array:";
-		for (int i=0; i<n; ++i)
+		for (int i = 0; i < n; ++i)
 			std::cout << " " << a[i];
 		std::cout << std::endl;
 

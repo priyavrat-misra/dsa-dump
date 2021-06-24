@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-	int x=1, y=1;
+	int x = 1, y = 1;
 	
 	const int* ptr0 = &x; // (pointer to const int)
 	*ptr0 = y; // not possible, as *ptr0 is a read-only variable

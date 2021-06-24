@@ -16,14 +16,14 @@ void swap(int& a, int& b) {
 int main() {
 	int s;
 	std::cout << "Enter the size of the array: ";
-	if (std::cin >> s && s>0) {
+	if (std::cin >> s && s > 0) {
 		int* a = new int[s];
 		std::cout << "Enter the elements (0, 1, 2): ";
-		for (int i=0; i<s; ++i)
+		for (int i = 0; i < s; ++i)
 			std::cin >> a[i];
 
 		int low = 0, mid = 0, high = s-1;
-		while (mid<=high) {
+		while (mid <= high) {
 			switch (a[mid]) {
 				case 0:
 					swap(a[low], a[mid]);
@@ -45,7 +45,7 @@ int main() {
 		}
 
 		std::cout << "The sorted array:";
-		for (int i=0; i<s; ++i)
+		for (int i = 0; i < s; ++i)
 			std::cout << " " << a[i];
 		
 		std::cout << std::endl;

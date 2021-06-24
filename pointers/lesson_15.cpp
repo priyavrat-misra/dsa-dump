@@ -4,12 +4,15 @@
 int Add(int a, int b) {
 	return a + b;
 }
+
 void PrintHelloWorld() {
 	printf("Hello World!\n");
 }
+
 void Greet(char* name) {
 	printf("Hello %s\n", name);
 }
+
 int main() {
 	int c;
 	int (*p)(int, int);	

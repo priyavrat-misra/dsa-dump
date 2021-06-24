@@ -1,7 +1,7 @@
 // Character arrays and pointers
 #include <iostream>
 
-void Log(const char* c) {
+void log(const char* c) {
 	while (*c != '\0') {
 		std::cout << *c;
 		c++;
@@ -11,5 +11,5 @@ void Log(const char* c) {
 
 int main() {
 	char s[20] = "Hello World!";
-	Log(s);
+	log(s);
 }
