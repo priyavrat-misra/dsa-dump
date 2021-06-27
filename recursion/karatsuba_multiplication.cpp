@@ -1,8 +1,8 @@
-// karatsuba multiplication for large integers
+// karatsuba multiplication for large numbers
 #include <iostream>
 #include <string>
 
-bool minus(std::string& s) {
+bool is_negative(std::string& s) {
 	if (s[0] == '-') {
 		s.erase(s.begin());
 		return true;
@@ -15,12 +15,12 @@ void ridzeros_(std::string& s) {
 		s.erase(s.begin());
 }
 
-void addzeros_(std::string& s1, std::string& s2) {
+void padzeros_(std::string& s1, std::string& s2) {
 	if (s1.size() > s2.size())
 		s2.insert(0, s1.size() - s2.size(), '0');
 	else if (s1.size() < s2.size())
 		s1.insert(0, s2.size() - s1.size(), '0');
-
+	
 	if (s1.size() != 1 && s1.size() % 2) {
 		s1.insert(0, 1, '0');
 		s2.insert(0, 1, '0');
@@ -28,7 +28,7 @@ void addzeros_(std::string& s1, std::string& s2) {
 }
 
 std::string add(std::string& s1, std::string& s2) {
-	addzeros_(s1, s2);
+	padzeros_(s1, s2);
 	if (s1.size() == 1) {
 		return std::to_string(std::stoi(s1) + std::stoi(s2));
 	} else {
@@ -56,7 +56,7 @@ std::string add(std::string& s1, std::string& s2) {
 }
 
 std::string sub(std::string& s1, std::string& s2) {
-	addzeros_(s1, s2);
+	padzeros_(s1, s2);
 	if (s1.size() == 1) {
 		return std::to_string(std::stoi(s1) - std::stoi(s2));
 	} else {
@@ -64,22 +64,25 @@ std::string sub(std::string& s1, std::string& s2) {
 		std::string res;
 		std::string::reverse_iterator it = s2.rbegin();
 		int i;
+		
+		// 10's compliment
 		while (it != s2.rend()) {
 			i = 9 - (int(*it) - '0');
 			res.insert(0, 1, char(i + '0'));
 			++it;
 		}
 		res = add(res, one);
+		
 		res = add(s1, res);
 		ridzeros_(res);
 		res.erase(res.begin());
-
+		
 		return res;
 	}
 }
 
 std::string kmul(std::string& s1, std::string& s2) {
-	addzeros_(s1, s2);
+	padzeros_(s1, s2);
 	if (s1.size() == 1) {
 		return std::to_string(std::stoi(s1) * std::stoi(s2));
 	} else {
@@ -92,7 +95,7 @@ std::string kmul(std::string& s1, std::string& s2) {
 		std::string aplusb = add(a, b);
 		std::string cplusd = add(c, d);
 		std::string apbcpd = kmul(aplusb, cplusd);
-
+		
 		std::string ac = kmul(a, c);
 		std::string bd = kmul(b, d);
 		std::string acplusbd = add(ac, bd);
@@ -113,14 +116,11 @@ int main() {
 	std::string a, b, ans;
 	std::cout << "Enter 2 numbers: ";
 	std::cin >> a >> b;
-
-	bool minus_a = minus(a);
-	bool minus_b = minus(b);
-
-	if (minus_a ^ minus_b)
+	
+	if (is_negative(a) ^ is_negative(b))
 		ans = '-' + kmul(a, b);
 	else
 		ans = kmul(a, b);
-
+	
 	std::cout << "Their multiplication is: " << ans << std::endl;
 }
