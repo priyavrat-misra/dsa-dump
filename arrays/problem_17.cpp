@@ -1,8 +1,14 @@
-// reverse an array 
+// Problem:
+/*
+ * Reverse a given 1D array.
+ */
+
+// Solution:
 /*
  * approach: two pointers
  * running time: linear
  */
+
 #include <iostream>
 
 void reverse(int* a, int s) {

@@ -1,9 +1,17 @@
-// merge two sorted arrays without using extra space
+// Problem:
 /*
+ * Given two sorted arrays in ascending order, merge them into one
+ * sorted array in ascending order without using any extra space.
+ *
  * source: https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1
- * approach: sorting
- * running time: quadratic
  */
+
+// Solution:
+/*
+ * approach: sorting
+ * running time: quadratic (linearitmic if quick or merge sort is used)
+ */
+
 #include <iostream>
 
 bool swap(int& a, int& b) {

@@ -1,8 +1,14 @@
-// generate all possible sub-arrays given an array
-/* 
+// Problem:
+/*
+ * Generate all possible sub-arrays of a given array.
+ */
+
+// Solution:
+/*
  * approach: bruteforce
  * running time: cubic
  */
+
 # include <iostream>
 
 int main() {

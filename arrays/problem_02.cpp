@@ -1,9 +1,15 @@
-// maximum and minimum of an array
-/* 
- * approach: comparison between pairs
+// Problem:
+/*
+ * Given an array, find it's maximum and minimum.
+ */
+
+// Solution:
+/*
+ * approach: comparison within pairs
  * running time: linear
  * approx number of comparisons: 1.5 * n
  */
+
 #include <iostream>
 
 inline int min(int& a, int& b) {

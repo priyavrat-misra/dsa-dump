@@ -1,8 +1,14 @@
-// given a sorted array, find pairs which sum to k
-/* 
+// Problem:
+/*
+ * Given a sorted array, find pairs which sum to k.
+ */
+
+// Solution:
+/*
  * approach: two pointers
  * running time: linear
  */
+
 #include <iostream>
 
 int main() {

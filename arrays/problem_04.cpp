@@ -1,8 +1,15 @@
-// maximum sub-array sum and maximum sum sub-array
-/* 
+// Problem:
+/*
+ * Given an array, find it's maximum sub-array sum
+ * and the sub-array.
+ */
+
+// Solution:
+/*
  * approach: bruteforce
  * running time: cubic
  */
+
 #include <iostream>
 #include <climits> 
 
@@ -29,7 +36,7 @@ int main() {
 			}
 		}
 		std::cout << maxsum << std::endl;
-		std::cout << "maximum sum sub-array is: [ ";
+		std::cout << "the sub-array is: [ ";
 		for (int i = x; i <= y; ++i)
 			std::cout << a[i] << " ";
 		std::cout << "]" << std::endl;

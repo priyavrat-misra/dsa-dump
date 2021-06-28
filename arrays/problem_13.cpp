@@ -1,8 +1,14 @@
-// cyclically rotate an array by k
-/* 
+// Problem:
+/*
+ * Given an array, cyclically rotate it by k.
+ */
+
+// Solution:
+/*
  * approach: modulus
  * running time: linear
  */
+
 #include <iostream>
 
 int main() {

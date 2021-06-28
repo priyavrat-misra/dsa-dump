@@ -1,8 +1,15 @@
-// maximum sub-array sum and maximum sum sub-array
-/* 
- * approach: Kadane's algorithm
+// Problem:
+/*
+ * Given an array, find it's maximum sub-array sum
+ * and the sub-array.
+ */
+
+// Solution:
+/*
+ * approach: Kadane's Algorithm
  * running time: linear
  */
+
 #include <iostream>
 
 int main() {
@@ -30,7 +37,7 @@ int main() {
 		}
 		std::cout << maxsum << std::endl;
 		
-		std::cout << "maximum sum sub-array is: [ ";
+		std::cout << "the sub-array is: [ ";
 		for (int i = x; i <= y; ++i)
 			std::cout << a[i] << " ";
 		std::cout << "]" << std::endl;

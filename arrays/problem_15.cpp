@@ -1,8 +1,16 @@
-// find the duplicate number
-/* source: https://leetcode.com/problems/find-the-duplicate-number/
- * approach: sorting
- * running time: quadratic
+// Problem:
+/*
+ * Given an array of integers containing n + 1 integers
+ * where each integer is in the range [1, n] inclusive.
+ * There is only one repeated number, return this repeated number.
  */
+
+// Solution (not optimal):
+/*
+ * approach: sorting
+ * running time: quadratic (linearitmic if quick or merge sort is used)
+ */
+
 #include <iostream>
 
 void isort(int* a, int& n) {

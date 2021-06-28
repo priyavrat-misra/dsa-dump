@@ -1,9 +1,16 @@
-// Move all negative numbers to beginning and positive to end with constant extra space
+// Problem:
 /*
- * source: https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/ 
+ * Given an array, move all negative numbers to beginning and positive to end with constant extra space.
+ * 
+ * source: https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/
+ */
+
+// Solution:
+/*
  * approach: two pointers
  * running time: linear
  */
+
 #include <iostream>
 
 void swap(int& a, int& b) {

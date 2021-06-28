@@ -1,10 +1,17 @@
-// Sort a given array containing 0s, 1s and 2s.
+// Problem:
 /*
+ * Sort a given array containing 0s, 1s and 2s in ascending order,
+ * also known as "Dutch national flag problem".
+ * 
  * source: https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
- * aka Dutch national flag problem
+ */
+
+// Solution:
+/*
  * approach: two pointers
  * running time: linear
  */
+
 #include <iostream>
 
 void swap(int& a, int& b) {

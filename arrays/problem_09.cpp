@@ -1,9 +1,18 @@
-// "K"th largest and smallest of an array
-/* 
+// Problem:
+/*
+ * Given an array and a number K where K is smaller than size of array,
+ * the task is to find the Kth smallest element in the given array.
+ * It is given that all array elements are distinct.
+ * 
  * source: https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1
+ */
+
+// Solution (not optimal):
+/*
  * approach: sorting
  * running time: quadratic
  */
+
 #include <iostream>
 
 void isort(int a[], int& s) {

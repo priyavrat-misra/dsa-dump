@@ -1,9 +1,16 @@
-// union and intersection of two sorted arrays
+// Problem:
 /*
+ * Find union and intersection of two given sorted arrays.
+ * 
  * source: https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
+ */
+
+// Solution:
+/*
  * approach: bruteforce
  * running time: linear
  */
+
 #include <iostream>
 
 void fill(int* arr, int& s) {

@@ -1,9 +1,15 @@
-// maximum and minimum of an array
-/* 
+// Problem:
+/*
+ * Given an array, find it's maximum and minimum.
+ */
+
+// Solution:
+/*
  * approach: bruteforce
  * running time: linear
  * approx number of comparisons: 2 * n
  */
+
 #include <iostream>
 
 int main() {

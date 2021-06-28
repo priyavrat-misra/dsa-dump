@@ -1,8 +1,14 @@
-// transpose a 2D array
-/* 
+// Problem:
+/*
+ * Given a 2D array, find it's transpose.
+ */
+
+// Solution:
+/*
  * approach: bruteforce
  * running time: quadratic
  */
+
 #include <iostream>
 
 int main() {
