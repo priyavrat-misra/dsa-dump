@@ -1,35 +1,32 @@
-// reverse an array 
-/*
- * approach: two pointers
+// maximum and minimum of an array
+/* 
+ * approach: bruteforce
  * running time: linear
+ * approx number of comparisons: 2 * n
  */
 #include <iostream>
 
-void reverse(int* a, int s) {
-	int start = 0, end = s - 1, temp;
-	while (end > start) {
-		temp = a[start];
-		a[start++] = a[end];
-		a[end++] = temp;
-	}
-}
-
 int main() {
 	int size;
+	
 	std::cout << "Enter the size of the array: ";
 	if (std::cin >> size && size > 0) {
 		int* arr = new int[size];
+	
 		std::cout << "Enter the elements: ";
 		for (int i = 0; i < size; ++i)
 			std::cin >> arr[i];
-
-		std::cout << "The reverse of the array is: ";
-		reverse(arr, size);
 		
-		for (int i = 0; i < size; ++i)
-			std::cout << arr[i] << " ";
-		std::cout << std::endl;
+		int smallest = arr[0], largest = arr[0];
+		for (int i = 1; i < size; ++i) {
+			if (arr[i] > largest)
+				largest = arr[i];
+			if (arr[i] < smallest)
+				smallest = arr[i];
+		}
 
+		std::cout << "Largest element: " << largest << std::endl;
+		std::cout << "Smallest element: " << smallest << std::endl;
 		delete[] arr;
 	} else {
 		std::cerr << "Size must be positive." << std::endl;

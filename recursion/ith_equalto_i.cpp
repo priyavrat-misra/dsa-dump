@@ -1,19 +1,19 @@
-// given a sorted array a, find if there exist some element
+// given a sorted array a, find if there exists some element
 // whose value is same as it's index (a[i] == i)
 #include <iostream>
 
-int find_i(int* a, int n, int e) {
+int find_i(int* a, int n, int i) {
 	if (n == 1) {
-		return *a == e ? e : -1;
+		return *a == i ? i : -1;
 	} else {
 		int m = n / 2;
-		e += m;
-		if (e < a[m])
-			return find_i(a, m, e - m);
-		else if (e > a[m])
-			return find_i(a + m, n - m, e);
+		i += m;
+		if (i < a[m])
+			return find_i(a, m, i - m);
+		else if (i > a[m])
+			return find_i(a + m, n - m, i);
 		else
-			return e;
+			return i;
 	}
 }
 
