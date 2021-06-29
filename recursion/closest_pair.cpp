@@ -69,35 +69,35 @@ inline float distance(int* p, int* q) {
 			+ (q[1]-p[1])*(q[1]-p[1]));
 }
 
-float closest_pair(int** sorted_x, int** sorted_y, int n) {
+float closest_pair(int** points, int n) {
 	if (n == 2) { // base case
-		return distance(sorted_x[0], sorted_x[1]);
+		return distance(points[0], points[1]);
 	} else if (n == 3) { // base case
-		float a = distance(sorted_x[0], sorted_x[1]);
-		float b = distance(sorted_x[1], sorted_x[2]);
-		float c = distance(sorted_x[2], sorted_x[0]);
+		float a = distance(points[0], points[1]);
+		float b = distance(points[1], points[2]);
+		float c = distance(points[2], points[0]);
 		b = a > b ? b : a;
 		return c > b ? b : c; // min (a, b, c)
 	} else {
 		// divide
 		int mid = n / 2;
-		int** left = slice(sorted_x, 0, mid);
-		int** right = slice(sorted_x, mid, n);
-		float dl = closest_pair(left, sorted_y, mid);
-		float dr = closest_pair(right, sorted_y, n - mid);
+		int** left = slice(points, 0, mid);
+		int** right = slice(points, mid, n);
+		float dl = closest_pair(left, mid);
+		float dr = closest_pair(right, n - mid);
 		float d = dl < dr ? dl : dr; // d = min (dl, dr)
 		
 		// create an array of elements whose x co-ordinates
 		// are in range: [mid - d, mid + d)
 		int** temp_strip = new int*[n];
 		int k = 0, s = 0;
-		dl = sorted_x[mid][0] - d;
-		dr = sorted_x[mid][0] + d;
+		dl = points[mid][0] - d;
+		dr = points[mid][0] + d;
 		while (k < n) {
 			temp_strip[k] = new int[2];
-			if (sorted_y[k][0] >= dl && sorted_y[k][0] < dr) {
-				temp_strip[s][0] = sorted_y[k][0];
-				temp_strip[s][1] = sorted_y[k][1];
+			if (points[k][0] >= dl && points[k][0] < dr) {
+				temp_strip[s][0] = points[k][0];
+				temp_strip[s][1] = points[k][1];
 				++s;
 				++k;
 			} else {
@@ -110,6 +110,8 @@ float closest_pair(int** sorted_x, int** sorted_y, int n) {
 			strip[i][0] = temp_strip[i][0];
 			strip[i][1] = temp_strip[i][1];
 		}
+		
+		msort(strip, s, true); // sort strip wrt y co-ordinates
 
 		// combine
 		float t;
@@ -136,43 +138,31 @@ float closest_pair(int** sorted_x, int** sorted_y, int n) {
 		delete2d(strip, s);
 
 		return d;
-	}	
+	}
 }
 
 int main() {
 	int n;
 	std::cout << "Enter number of points: ";
 	if (std::cin >> n && n > 1) {
-		int** sort_x = new int*[n];
-		int** sort_y = new int*[n];
-		/* Two arrays because one will contain points
-		 * sorted w.r.t x co-ordinates and the other
-		 * sorted w.r.t y co-ordinates. This is because it'll
-		 * save computation later on in the recursion steps,
-		 * where there is a need of sorting w.r.t y co-ordinates.
-		 */
+		int** points = new int*[n];
 		
-		// get and store the inputs in the two 2d arrays
+		// get and store the inputs in a 2d array
 		std::cout << "Enter the co-ordinates:" << std::endl;
 		for (int i = 0; i < n; ++i) {
-			sort_x[i] = new int[2];
-			sort_y[i] = new int[2];
+			points[i] = new int[2];
 			std::cout << "x y: ";
-			std::cin >> sort_x[i][0] >> sort_x[i][1];
-			sort_y[i][0] = sort_x[i][0];
-			sort_y[i][1] = sort_x[i][1];
+			std::cin >> points[i][0] >> points[i][1];
 		}
 
-		// sort the points inplace
-		msort(sort_x, n, false);
-		msort(sort_y, n, true);
+		// sort the points wrt x co-ordinates inplace
+		msort(points, n, false);
 
 		std::cout << "The distance between the closest pair is: "
-			<< closest_pair(sort_x, sort_y, n) << std::endl;
+			<< closest_pair(points, n) << std::endl;
 
-		// deallocate arrays from heap
-		delete2d(sort_x, n);
-		delete2d(sort_y, n);
+		// deallocate array from heap
+		delete2d(points, n);
 	} else {
 		std::cerr << "There must be at least 2 points." << std::endl;
 	}
