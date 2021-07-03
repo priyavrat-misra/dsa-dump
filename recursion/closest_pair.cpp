@@ -86,9 +86,12 @@ float closest_pair(int** points, int n) {
 		float dl = closest_pair(left, mid);
 		float dr = closest_pair(right, n - mid);
 		float d = dl < dr ? dl : dr; // d = min (dl, dr)
+
+		delete2d(left, mid);
+		delete2d(right, n - mid);
 		
-		// create an array of elements whose x co-ordinates
-		// are in range: [mid - d, mid + d)
+		/* create an array of elements whose x co-ordinates
+		 * are in range: [mid - d, mid + d) */
 		int** temp_strip = new int*[n];
 		int k = 0, s = 0;
 		dl = points[mid][0] - d;
@@ -104,12 +107,15 @@ float closest_pair(int** points, int n) {
 				++k;
 			}
 		}
+
+		// copy elements from the temporary array
 		int** strip = new int*[s];
 		for (int i = 0; i < s; ++i) {
 			strip[i] = new int[2];
 			strip[i][0] = temp_strip[i][0];
 			strip[i][1] = temp_strip[i][1];
 		}
+		delete2d(temp_strip, n); // delete the temporary array
 		
 		msort(strip, s, true); // sort strip wrt y co-ordinates
 
@@ -130,11 +136,6 @@ float closest_pair(int** points, int n) {
 			}
 			++i;
 		}
-		
-		// deallocate arrays from heap
-		delete2d(left, mid);
-		delete2d(right, n - mid);
-		delete2d(temp_strip, n);
 		delete2d(strip, s);
 
 		return d;
