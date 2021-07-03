@@ -9,9 +9,10 @@ void swap(int& a, int& b) {
 
 void qsort(int* a, int size) {
 	if (size > 1) {
-		int i = 0, j = 1, pivot = 0;
+		// partition
+		int i = 0, j = 1;
 		while (j < size) {
-			if (a[pivot] < a[j]) {
+			if (a[0] <= a[j]) { // pivot = 0
 				++j;
 			} else {
 				swap(a[i+1], a[j]);
@@ -19,8 +20,9 @@ void qsort(int* a, int size) {
 				++j;
 			}
 		}
-		swap(a[pivot], a[i]);
-
+		swap(a[0], a[i]);
+		
+		// divide
 		qsort(a, i);
 		qsort(a + i + 1, size - i - 1);
 	}

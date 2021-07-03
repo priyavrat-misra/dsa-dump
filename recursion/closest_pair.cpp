@@ -11,58 +11,34 @@ void delete2d(int** a, int n) {
 	a = nullptr;
 }
 
-int** slice(int** points, int start, int end) {
-	int** sl = new int*[end-start];
-	for (int i = start; i < end; ++i) {
-		sl[i-start] = new int[2];
-		sl[i-start][0] = points[i][0];
-		sl[i-start][1] = points[i][1];
-	}
-	return sl;
+void swap(int* a, int* b) {
+	// swaps two arrays
+	int t[] = {a[0], a[1]};
+	a[0] = b[0];
+	a[1] = b[1];
+	b[0] = t[0];
+	b[1] = t[1];
 }
 
-// merge sort - start
-void merge(int** p, int** l, int** r, int ls, int rs, bool sort_y) {
-	int i = 0, j = 0;
-	while (i < ls && j < rs) {
-		if (l[i][sort_y] > r[j][sort_y]) {
-			p[i+j][0] = r[j][0];
-			p[i+j][1] = r[j][1];
-			++j;
-		} else {
-			p[i+j][0] = l[i][0];
-			p[i+j][1] = l[i][1];
-			++i;
-		}
-	}
-	while (i < ls) {
-		p[i+j][0] = l[i][0];
-		p[i+j][1] = l[i][1];
-		++i;
-	}
-	while (j < rs) {
-		p[i+j][0] = r[j][0];
-		p[i+j][1] = r[j][1];
-		++j;
-	}
-
-	// deallocate arrays from heap
-	delete2d(l, ls);
-	delete2d(r, rs);
-}
-
-void msort(int** points, int n, bool sort_y) {
+void qsort(int** points, int n, bool sort_y) {
+	// quick sort with 1st element as pivot
 	if (n > 1) {
-		int mid = n / 2;
-		int** left = slice(points, 0, mid);
-		int** right = slice(points, mid, n);
+		int i = 0, j = 1;
+		while (j < n) {
+			if (points[0][sort_y] <= points[j][sort_y]) {
+				++j;
+			} else {
+				swap(points[i+1], points[j]);
+				++i;
+				++j;
+			}
+		}
+		swap(points[0], points[i]);
 
-		msort(left, mid, sort_y);
-		msort(right, n - mid, sort_y);
-		merge(points, left, right, mid, n - mid, sort_y);
+		qsort(points, i, sort_y);
+		qsort(points + i + 1, n - i - 1, sort_y);
 	}
 }
-// merge sort - end
 
 inline float distance(int* p, int* q) {
 	return std::sqrt((q[0]-p[0])*(q[0]-p[0])
@@ -81,14 +57,9 @@ float closest_pair(int** points, int n) {
 	} else {
 		// divide
 		int mid = n / 2;
-		int** left = slice(points, 0, mid);
-		int** right = slice(points, mid, n);
-		float dl = closest_pair(left, mid);
-		float dr = closest_pair(right, n - mid);
+		float dl = closest_pair(points, mid);
+		float dr = closest_pair(points + mid, n - mid);
 		float d = dl < dr ? dl : dr; // d = min (dl, dr)
-
-		delete2d(left, mid);
-		delete2d(right, n - mid);
 		
 		/* create an array of elements whose x co-ordinates
 		 * are in range: [mid - d, mid + d) */
@@ -117,8 +88,8 @@ float closest_pair(int** points, int n) {
 		}
 		delete2d(temp_strip, n); // delete the temporary array
 		
-		msort(strip, s, true); // sort strip wrt y co-ordinates
-
+		qsort(strip, s, true); // sort strip wrt y co-ordinates
+		
 		// combine
 		float t;
 		int i = 0;
@@ -157,7 +128,7 @@ int main() {
 		}
 
 		// sort the points wrt x co-ordinates inplace
-		msort(points, n, false);
+		qsort(points, n, false);
 
 		std::cout << "The distance between the closest pair is: "
 			<< closest_pair(points, n) << std::endl;
