@@ -63,15 +63,15 @@ float closest_pair(int** points, int n) {
 		
 		/* create an array of elements whose x co-ordinates
 		 * are in range: [mid - d, mid + d) */
-		int** temp_strip = new int*[n];
+		int** strip = new int*[n];
 		int k = 0, s = 0;
 		dl = points[mid][0] - d;
 		dr = points[mid][0] + d;
 		while (k < n) {
-			temp_strip[k] = new int[2];
+			strip[k] = new int[2];
 			if (points[k][0] >= dl && points[k][0] < dr) {
-				temp_strip[s][0] = points[k][0];
-				temp_strip[s][1] = points[k][1];
+				strip[s][0] = points[k][0];
+				strip[s][1] = points[k][1];
 				++s;
 				++k;
 			} else {
@@ -79,15 +79,6 @@ float closest_pair(int** points, int n) {
 			}
 		}
 
-		// copy elements from the temporary array
-		int** strip = new int*[s];
-		for (int i = 0; i < s; ++i) {
-			strip[i] = new int[2];
-			strip[i][0] = temp_strip[i][0];
-			strip[i][1] = temp_strip[i][1];
-		}
-		delete2d(temp_strip, n); // delete the temporary array
-		
 		qsort(strip, s, true); // sort strip wrt y co-ordinates
 		
 		// combine
@@ -107,7 +98,7 @@ float closest_pair(int** points, int n) {
 			}
 			++i;
 		}
-		delete2d(strip, s);
+		delete2d(strip, n);
 
 		return d;
 	}
