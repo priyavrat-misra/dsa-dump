@@ -68,8 +68,8 @@ float closest_pair(int** points, int n) {
 		dl = points[mid][0] - d;
 		dr = points[mid][0] + d;
 		while (k < n) {
-			strip[k] = new int[2];
 			if (points[k][0] >= dl && points[k][0] < dr) {
+				strip[s] = new int[2];
 				strip[s][0] = points[k][0];
 				strip[s][1] = points[k][1];
 				++s;
@@ -98,7 +98,7 @@ float closest_pair(int** points, int n) {
 			}
 			++i;
 		}
-		delete2d(strip, n);
+		delete2d(strip, s);
 
 		return d;
 	}
