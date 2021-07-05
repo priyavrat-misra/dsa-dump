@@ -7,7 +7,7 @@
 
 // Solution:
 /*
- * approach: bruteforce
+ * approach: two pointers
  * running time: linear
  */
 

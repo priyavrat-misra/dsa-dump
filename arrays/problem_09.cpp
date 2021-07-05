@@ -10,7 +10,7 @@
 // Solution (not optimal):
 /*
  * approach: sorting
- * running time: quadratic
+ * running time: quadratic (linearitmic if quick or merge sort is used)
  */
 
 #include <iostream>
@@ -33,23 +33,19 @@ int main() {
 	std::cout << "Enter the size of the array: ";
 	if (std::cin >> s && s > 0) {
 		int* a = new int[s];
-		
 		std::cout << "Enter the elements: ";
 		for (int i = 0; i < s; ++i)
 			std::cin >> a[i];
 
 		int k;
 		std::cout << "Enter k: ";
-		if (std::cin >> k && k > 0 && k <= s+1) {
+		if (std::cin >> k && k > -1 && k < s) {
 			isort(a, s);
-			std::cout << "kth smallest number is: " << a[k-1] << std::endl;	
-			std::cout << "kth largest number is: " << a[s-k] << std::endl;
-			delete[] a;	
+			std::cout << "kth smallest number is: " << a[k] << std::endl;
 		} else {
-			std::cout << "k out of range [1, " << s+1 << "]" << std::endl;
-			delete[] a;
-			exit(0);
+			std::cout << "k out of range [0, " << s << ")" << std::endl;
 		}
+		delete[] a;
 	} else {
 		std::cerr << "Size must be positive." << std::endl;
 	}

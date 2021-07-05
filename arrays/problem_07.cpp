@@ -19,19 +19,20 @@ int main() {
 		std::cout << "Enter the elements: ";
 		for(int i = 0; i < size; i++)
 			std::cin >> a[i];
-		i = 0;
-		j = size - 1;
+
 		std::cout << "Enter k: ";
 		std::cin >> k;
-		std::cout << "Pairs which sum to k:" << std::endl;
 
+		std::cout << "Pairs which sum to k:" << std::endl;
+		i = 0;
+		j = size - 1;
 		while (i < j) {
 			s = a[i] + a[j];
 			if (s < k)
 				++i;
 			else if (s > k)
 				--j;
-			else{
+			else {
 				std::cout << "[ " << a[i] << ", " << a[j] << " ]" << std::endl;
 				++i;
 				--j;
