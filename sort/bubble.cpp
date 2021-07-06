@@ -18,6 +18,17 @@ void bubble_sort(int* a, int& n) {
 	}
 }
 
+void recursive_bsort(int* a, int n, int j = 0) {
+	if (n > 1) {
+		if (j == n - 1) // outer loop
+			return recursive_bsort(a, n - 1);
+		if (a[j] > a[j+1])
+			swap(a[j], a[j+1]);
+		
+		recursive_bsort(a, n, j + 1); // inner loop
+	}
+}
+
 int main() {
 	int size;
 	std::cout << "Enter the size of the array: ";

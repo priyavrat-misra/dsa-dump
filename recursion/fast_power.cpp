@@ -1,9 +1,14 @@
-// compute the result given 
+// compute the result given
 // the exponent and the base
 #include <iostream>
 
 long pow(int& b, int e) {
-	return e == 1 ? b : b * pow(b, e - 1);
+	if (e == 0)
+		return 1;
+	else {
+		long h = pow(b, e/2);
+		return e % 2 ? b * h * h : h * h;
+	}
 }
 
 int main() {
@@ -16,7 +21,7 @@ int main() {
 			<< e << " equals " << pow(b, e)
 			<< "." << std::endl;
 	} else {
-		std::cerr << "Only supports natural numbers."
+		std::cerr << "Only supports whole numbers."
 			<< std::endl;
 	}
 }
