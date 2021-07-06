@@ -1,7 +1,7 @@
 // binary search
 #include <iostream>
 
-int bsearch(int* a, int n, const int& e, int i) {
+int bsearch(int* a, int n, const int& e, int i = 0) {
 	if (n == 1)
 		return *a == e ? i : -1;
 	else {
@@ -27,7 +27,7 @@ int main() {
 		std::cout << "Enter the element to search: ";
 		std::cin >> e;
 		
-		int i = bsearch(a, n, e, 0);
+		int i = bsearch(a, n, e);
 		if (i > -1) {
 		       std::cout << "Element found at index "
 			       << i << "." << std::endl;

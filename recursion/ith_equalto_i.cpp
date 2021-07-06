@@ -2,7 +2,7 @@
 // whose value is same as it's index (a[i] == i)
 #include <iostream>
 
-int find_i(int* a, int n, int i) {
+int find_i(int* a, int n, int i = 0) {
 	if (n == 1) {
 		return *a == i ? i : -1;
 	} else {
@@ -26,7 +26,7 @@ int main() {
 		for (int i = 0; i < n; ++i)
 			std::cin >> a[i];
 
-		int i = find_i(a, n, 0);
+		int i = find_i(a, n);
 		if (i > -1) {
 			std::cout << "Element found at index "
 				<< i << "." << std::endl;
