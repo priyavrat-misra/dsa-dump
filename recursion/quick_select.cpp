@@ -1,6 +1,6 @@
-// quick sort
+// quick select
 
-/* note: for randomized quick sort,
+/* note: for randomized quick select,
  * uncomment the following */
 // #include <algorithm>
 // #include <random>
@@ -29,14 +29,20 @@ int partition(int* a, int& n, int pivot = 0) {
 	return i;
 }
 
-void qsort(int* a, int size) {
-	if (size > 1) {
+int qselect(int* a, int n, int k) {
+	if (n == 1) {
+		return *a;
+	} else {
 		// partition
-		int i = partition(a, size);
+		int i = partition(a, n);
 
 		// divide
-		qsort(a, i);
-		qsort(a + i + 1, size - i - 1);
+		if (i > k)
+			return qselect(a, i, k);
+		else if (i < k)
+			return qselect(a + i + 1, n - i - 1, k - i - 1);
+		else
+			return a[i];
 	}
 }
 
@@ -49,7 +55,15 @@ int main() {
 		for (int i = 0; i < n; ++i)
 			std::cin >> a[i];
 		
-		// (for randomized quick sort)
+		int k;
+		while (true) {
+			std::cout << "Enter the required smallest element: ";
+			if (std::cin >> k && k > 0 && k <= n)
+				break;
+			else
+				std::cerr << "Out of range. Try Again." << std::endl;
+		}
+		// (for randomized quick select)
 		/* randomly shuffling the array
 		 * and picking the first element as 
 		 * pivot everytime can be thought of
@@ -58,13 +72,8 @@ int main() {
     		// std::mt19937 g(rd());
 		// std::shuffle(a, a + n, g);
 		
-		qsort(a, n);
-		
-		std::cout << "The sorted array:";
-		for (int i = 0; i < n; ++i)
-			std::cout << " " << a[i];
-		std::cout << std::endl;
-
+		std::cout << k << "th smallest in the given array is: "
+			<< qselect(a, n, k - 1) << std::endl;
 		delete[] a;
 	} else {
 		std::cerr << "Size must be positive." << std::endl;
