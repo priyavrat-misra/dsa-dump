@@ -9,7 +9,7 @@ void PrintHelloWorld() {
 	printf("Hello World!\n");
 }
 
-void Greet(char* name) {
+void Greet(const char* name) {
 	printf("Hello %s\n", name);
 }
 
@@ -20,7 +20,7 @@ int main() {
 	c = p(2, 3); // dereferencing and executing the function
 	printf("%d\n", c);
 	void (*hw)() = PrintHelloWorld;
-	hw();
-	void (*g)(char*) = Greet;
-	g("foobar");
+	hw();  // or (*hw)();
+	void (*g)(const char*) = Greet;
+	g("foobar");  // or (*g)("foobar");
 }

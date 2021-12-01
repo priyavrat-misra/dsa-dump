@@ -1,8 +1,8 @@
 // Character arrays and pointers
 #include <iostream>
 
-void log(const char* c) {
-	while (*c != '\0') {
+void log(const char* c) { // or `char c[]`
+	while (*c != '\0') { // or 0
 		std::cout << *c;
 		c++;
 	}

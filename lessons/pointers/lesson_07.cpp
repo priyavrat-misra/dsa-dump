@@ -1,7 +1,7 @@
 // Pointer as fuction arguments - call by reference
 #include <iostream>
 
-void increment(int *p) {
+void increment(int *p) { // or int p[]
 	*p += 1;
 }
 
