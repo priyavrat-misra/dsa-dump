@@ -11,3 +11,6 @@ int main() {
 	printf("addr(p0) = %d, val(p0) = %d\n", p0, *p0);
 	printf("addr(p0+1) = %d, val(p0+1) = %d\n", p0+1, *(p0+1));
 }
+
+// 1025 is stored as 00000001 00000100 00000000 00000000 (little endian)
+// therefore *p0 = 1 and *(p0+1) = 4, the sign bit is *(p0+3)'s MSB

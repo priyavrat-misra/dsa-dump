@@ -10,7 +10,7 @@ bool abs_compare(int& a, int& b) {
 	return abs(a) > abs(b);
 }
 
-void bubblesort(int *A, int n, bool (*cmp)(int&, int&)) {
+void bubblesort(int *A, int n, bool (*cmp)(int&, int&)) {  // or `bool (&cmp)(...)`
 	int temp;
 	for (int i = 0; i < n-1; ++i) {
 		for (int j = 0; j < n-i-1; ++j) {
