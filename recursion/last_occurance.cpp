@@ -1,5 +1,4 @@
-// find the index of the last ocuurance
-// of a given element in a given array
+// find the index of last ocuurance of a given element in an array
 #include <iostream>
 
 int last_occ(int* a, int n, const int& e) {

@@ -1,5 +1,4 @@
-// find the index of the 1st ocuurance
-// of a given element in a given array
+// find the index of 1st ocuurance of a given element in an array
 #include <iostream>
 
 int first_occ(int* a, int n, const int& e) {

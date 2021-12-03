@@ -8,7 +8,6 @@ void delete2d(int** a, int n) {
 	for (int i = 0; i < n; ++i)
 		delete[] a[i];
 	delete[] a;
-	a = nullptr;
 }
 
 void swap(int* a, int* b) {
@@ -25,7 +24,7 @@ void qsort(int** points, int n, bool sort_y) {
 	if (n > 1) {
 		int i = 0, j = 1;
 		while (j < n) {
-			if (points[0][sort_y] <= points[j][sort_y]) {
+			if (points[0][sort_y] < points[j][sort_y]) {
 				++j;
 			} else {
 				swap(points[i+1], points[j]);

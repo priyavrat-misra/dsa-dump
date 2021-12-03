@@ -1,8 +1,7 @@
-// compute the result given
-// the exponent and the base
+// compute the result given the exponent and the base
 #include <iostream>
 
-long pow(int& b, int e) {
+long pow(const int& b, const int& e) {
 	return e == 0 ? 1 : b * pow(b, e - 1);
 }
 

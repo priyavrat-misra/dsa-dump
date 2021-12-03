@@ -1,7 +1,7 @@
 // nth fibonacci
 #include <iostream>
 
-int nth_fib(int n) {
+int nth_fib(const int& n) {
 	if (n == 0 || n == 1)
 		return n;
 	else

@@ -9,13 +9,13 @@ int* slice(int* a, int start, int end) {
 	return s;
 }
 
-unsigned int mergeNcount(int* a, int* left, int* right, int ls, int rs) {
+unsigned mergeNcount(int* a, int* left, int* right, int ls, int rs) {
 	int i = 0, j = 0;
-	unsigned int c = 0;
+	unsigned c = 0;
 	while (i < ls && j < rs) {
 		if (left[i] > right[j]) {
 			a[i+j] = right[j];
-			c += (ls-i);
+			c += (ls - i);
 			++j;
 		} else {
 			a[i+j] = left[i];
@@ -36,16 +36,16 @@ unsigned int mergeNcount(int* a, int* left, int* right, int ls, int rs) {
 	return c;
 }
 
-unsigned int divideNsort(int* a, int n) {
-	unsigned int c = 0;
+unsigned divideNsort(int* a, int n) {
+	unsigned c = 0;
 	if (n > 1) {
 		int mid = n/2;
 		int* left = slice(a, 0, mid);
 		int* right = slice(a, mid, n);
 		
 		c += divideNsort(left, mid);
-		c += divideNsort(right, n-mid);
-		c += mergeNcount(a, left, right, mid, n-mid);
+		c += divideNsort(right, n - mid);
+		c += mergeNcount(a, left, right, mid, n - mid);
 	}
 	return c;
 }

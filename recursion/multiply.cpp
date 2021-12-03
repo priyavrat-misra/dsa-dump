@@ -1,14 +1,13 @@
-// mutiply two numbers without
-// using multipication operator
+// mutiply 2 numbers without using multipication operator
 #include <iostream>
 
-int multiply(int& a, int b) {
+int multiply(const int& a, const int& b) {
 	if (b == 0)
 		return 0;
 	else if (b == 1)
 		return a;
 	else
-		return a + multiply(a, b-1);
+		return a + multiply(a, b - 1);
 }
 
 int main() {

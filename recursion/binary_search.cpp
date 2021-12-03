@@ -1,7 +1,7 @@
 // binary search
 #include <iostream>
 
-int bsearch(int* a, int n, const int& e, int i = 0) {
+int bsearch(const int* a, const int& n, const int& e, int i = 0) {
 	if (n == 1)
 		return *a == e ? i : -1;
 	else {
@@ -9,7 +9,7 @@ int bsearch(int* a, int n, const int& e, int i = 0) {
 		if (e < a[m])
 			return bsearch(a, m, e, i);
 		else if (e > a[m])
-			return bsearch(a+m+1, n-m-1, e, i+m+1);
+			return bsearch(a + m + 1, n - m - 1, e, i + m + 1);
 		else
 			return i + m;
 	}

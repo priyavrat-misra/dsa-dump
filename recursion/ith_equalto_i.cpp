@@ -2,16 +2,16 @@
 // whose value is same as it's index (a[i] == i)
 #include <iostream>
 
-int find_i(int* a, int n, int i = 0) {
+int find_i(const int* a, const int& n, int i = 0) {
 	if (n == 1) {
 		return *a == i ? i : -1;
 	} else {
 		int m = n / 2;
 		i += m;
 		if (i < a[m])
-			return find_i(a, m, i-m);
+			return find_i(a, m, i - m);
 		else if (i > a[m])
-			return find_i(a+m+1, n-m-1, i+1);
+			return find_i(a + m + 1, n - m - 1, i + 1);
 		else
 			return i;
 	}

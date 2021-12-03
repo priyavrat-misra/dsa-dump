@@ -1,7 +1,7 @@
 // max element in an unimodal array with logarithmic running time
 #include <iostream>
 
-int umax(int* a, int n) {
+int umax(const int* a, const int& n) {
 	if (n > 1) {
 		int m = n / 2;
 		return a[m-1] < a[m] ? umax(a + m, n - m) : umax(a, m);
