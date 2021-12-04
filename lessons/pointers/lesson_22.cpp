@@ -14,5 +14,5 @@ int main() {
 	f2(x);
 }
 
-// using `const` makes a variable or
+// using `const` makes a variable,
 // a location or a reference read-only

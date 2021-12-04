@@ -9,6 +9,7 @@
 
 // Solution (not optimal):
 /*
+ * optimal solution: "../recursion/quick_select.cpp"
  * approach: sorting
  * running time: quadratic (linearitmic if quick or merge sort is used)
  */
