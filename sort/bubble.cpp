@@ -28,10 +28,11 @@ int main() {
 		for (int i = 0; i < size; ++i)
 			std::cin >> arr[i];
 
-		std::cout << "Sorted Array: ";
 		bubble_sort(arr, size);
-		for(int i = 0; i < size; ++i)
-			std::cout << arr[i] << " ";
+
+		std::cout << "Sorted Array:";
+		for (int i = 0; i < size; ++i)
+			std::cout << " " << arr[i];
 		std::cout << std::endl;
 		
 		delete[] arr;

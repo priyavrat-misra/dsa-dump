@@ -29,9 +29,9 @@ int main() {
 	
 		selection_sort(arr, size);
 	
-		std::cout << "Sorted Array: ";
+		std::cout << "Sorted Array:";
 		for (int i = 0; i < size; ++i)
-			std::cout << arr[i] << " ";
+			std::cout << " " << arr[i];
 		std::cout << std::endl;
 	
 		delete[] arr;

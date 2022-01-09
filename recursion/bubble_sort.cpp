@@ -1,11 +1,10 @@
 // bubble sort
 #include <iostream>
 
-bool swap(int& i, int& j) {
+void swap(int& i, int& j) {
 	int temp = i;
 	i = j;
 	j = temp;
-	return true;
 }
 
 void recursive_bsort(int* a, const int& n, int j = 0) {
