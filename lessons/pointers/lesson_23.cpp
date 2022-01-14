@@ -1,9 +1,10 @@
 // Pointers - bad practices
 
-int* f1() {  //returning a pointer
+int* f1() {  // returning a pointer
 	int a = 5;
 	return &a;
 }
+// Note: it's fine if a heap address is returned
 
 int& f2() {  // returning a reference
 	int a = 5;
