@@ -24,21 +24,17 @@ Node* insert(Node* head, int& d, unsigned& p) {
 }
 
 void print(Node* t) {
-	while (t) {
+	if (t) {
 		std::cout << "-->" << t->data;
-		t = t->next;
+		print(t->next);
 	}
-	std::cout << std::endl;
 }
 
-void delete_ll(Node* t) {
-	Node* temp = t->next;
-	while (temp) {
+void delete_list(Node* t) {
+	if (t) {
+		delete_list(t->next);
 		delete t;
-		t = temp;
-		temp = temp->next;
 	}
-	delete t;
 }
 
 int main() {
@@ -49,14 +45,14 @@ int main() {
 	while (true) {
 		std::cout << "Enter value to insert: ";
 		std::cin >> d;
-		std::cout << "Enter insertion position (1-" << v++ << "): ";
+		std::cout << "Enter insertion position [1, " << v++ << "]: ";
 		std::cin >> p;
 		head = insert(head, d, p);
 		print(head);
-		std::cout << "Continue inserting more elements? (y/n): ";
+		std::cout << "\nContinue inserting more elements? (y/n): ";
 		std::cin >> f;
 		if (f == 'n') break;
 	}
 
-	delete_ll(head);
+	delete_list(head);
 }

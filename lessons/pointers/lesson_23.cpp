@@ -1,6 +1,6 @@
 // Pointers - bad practices
 
-int* f1() {  // returning a pointer
+int* f1() {  // returning a pointer of a stack variable
 	int a = 5;
 	return &a;
 }

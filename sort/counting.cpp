@@ -10,9 +10,6 @@ int max(int* a, int& n) {
 }
 
 void count_sum(int* a, int& n, int* c, int& m) {
-	for (int i = 0; i < m; ++i)
-		c[i] = 0;
-
 	for (int i = 0; i < n; ++i)
 		++c[a[i]];
 
@@ -40,7 +37,7 @@ int main() {
 			std::cin >> a[i];
 		
 		int m = max(a, n) + 1;
-		int* c = new int[m];
+		int* c = new int[m]{0};
 		count_sum(a, n, c, m);
 		a = csort(a, n, c, m);
 		
