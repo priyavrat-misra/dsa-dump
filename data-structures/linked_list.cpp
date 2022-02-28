@@ -12,7 +12,7 @@ void print(Node* head) {
 	}
 }
 
-void insert(Node** head, int& e, const int& pos, int& s) {
+void insert(Node** head, int& e, const int& pos) {
 	Node* t1 = new Node;
 	t1->data = e;
 	if (pos == 0) {
@@ -25,10 +25,9 @@ void insert(Node** head, int& e, const int& pos, int& s) {
 		t1->next = t2->next;
 		t2->next = t1;
 	}
-	++s;
 }
 
-void del_node(Node** head, const int& pos, int& s) {
+void del_node(Node** head, const int& pos) {
 	Node* t1 = *head;
 	if (pos == 0) {
 		*head = (*head)->next;
@@ -40,7 +39,6 @@ void del_node(Node** head, const int& pos, int& s) {
 		t1->next = t1->next->next;
 		delete t2;
 	}
-	--s;
 }
 
 void del_list(Node* head) {
@@ -62,7 +60,7 @@ void reverse(Node* t, Node** head) {
 }
 
 int main() {
-	int choice = 0, e, pos, s = 0;
+	int choice = 0, e, pos, size = 0;
 	Node* head = NULL;
 	while (choice != 4) {
 		std::cout
@@ -78,21 +76,23 @@ int main() {
 				std::cout << "Enter an element to insert: ";
 				std::cin >> e;
 				std::cout << "Enter a position to insert it: ";
-				while (!(std::cin >> pos && pos >= 0 && pos <= s))
+				while (!(std::cin >> pos && pos >= 0 && pos <= size))
 					std::cerr << "Not a valid position, enter again: ";
-				insert(&head, e, pos, s);
+				insert(&head, e, pos);
 				std::cout << std::endl;
+				++size;
 				break;
 			case 1:
-				if (s == 0) {
+				if (size == 0) {
 					std::cout << "Nothing to delete. Insert first.\n\n";
 					break;	
 				}
 				std::cout << "Enter position of the element to delete: ";
-				while (!(std::cin >> pos && pos >= 0 && pos < s))
+				while (!(std::cin >> pos && pos >= 0 && pos < size))
 					std::cerr << "Not a valid position, enter again: ";
-				del_node(&head, pos, s);
+				del_node(&head, pos);
 				std::cout << std::endl;
+				--size;
 				break;
 			case 2:
 				std::cout << "The linked list: ";
@@ -100,7 +100,7 @@ int main() {
 				std::cout << "\n\n";
 				break;
 			case 3:
-				if (s == 0) {
+				if (size == 0) {
 					std::cerr << "Nothing to reverse. Insert first.\n\n";
 					break;	
 				}
