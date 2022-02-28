@@ -37,22 +37,21 @@ void del_stack(Node* tos) {
 int main() {
 	Node* tos = NULL;
 	int choice = 0, e;
-	while (choice != 3) {
-		std::cout << std::endl;
-		std::cout
-			<< "0. Push an element\n"
-			<< "1. Pop an element\n"
-			<< "2. Print the stack\n"
-			<< "3. Delete stack and exit\n"
-			<< "Choose one (0, 1, 2 or 3): ";
+	while (choice != 4) {
+		std::cout << std::endl
+			<< "1. Push an element\n"
+			<< "2. Pop an element\n"
+			<< "3. Print the stack\n"
+			<< "4. Delete stack and exit\n"
+			<< "Choose one (1, 2, 3 or 4): ";
 		std::cin >> choice;
 		switch (choice) {
-			case 0:
+			case 1:
 				std::cout << "Enter a number to push: ";
 				std::cin >> e;
 				push(&tos, e);
 				break;
-			case 1:
+			case 2:
 				if (tos) {
 					std::cout << "Element " << pop(&tos)
 						<< " at top of stack deleted.\n";
@@ -61,12 +60,12 @@ int main() {
 						<< " Push an element first.\n";
 				}
 				break;
-			case 2:
+			case 3:
 				std::cout << "Stack: ";
 				print(tos);
 				std::cout << std::endl;
 				break;
-			case 3:
+			case 4:
 				del_stack(tos);
 				tos = NULL;
 				break;

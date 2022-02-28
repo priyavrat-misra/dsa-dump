@@ -62,56 +62,53 @@ void reverse(Node* t, Node** head) {
 int main() {
 	int choice = 0, e, pos, size = 0;
 	Node* head = NULL;
-	while (choice != 4) {
-		std::cout
-			<< "0. Insert a node\n"
-			<< "1. Delete a node\n"
-			<< "2. Print the linked list\n"
-			<< "3. Reverse the linked list\n"
-			<< "4. Delete the linked list & exit\n"
-			<< "Choose one (0, 1, 2, 3 or 4): ";
+	while (choice != 5) {
+		std::cout << std::endl
+			<< "1. Insert a node\n"
+			<< "2. Delete a node\n"
+			<< "3. Print the linked list\n"
+			<< "4. Reverse the linked list\n"
+			<< "5. Delete the linked list & exit\n"
+			<< "Choose one (1, 2, 3, 4 or 5): ";
 		std::cin >> choice;
 		switch (choice) {
-			case 0:
+			case 1:
 				std::cout << "Enter an element to insert: ";
 				std::cin >> e;
 				std::cout << "Enter a position to insert it: ";
 				while (!(std::cin >> pos && pos >= 0 && pos <= size))
 					std::cerr << "Not a valid position, enter again: ";
 				insert(&head, e, pos);
-				std::cout << std::endl;
 				++size;
 				break;
-			case 1:
+			case 2:
 				if (size == 0) {
-					std::cout << "Nothing to delete. Insert first.\n\n";
+					std::cout << "Nothing to delete. Insert first.\n";
 					break;	
 				}
 				std::cout << "Enter position of the element to delete: ";
 				while (!(std::cin >> pos && pos >= 0 && pos < size))
 					std::cerr << "Not a valid position, enter again: ";
 				del_node(&head, pos);
-				std::cout << std::endl;
 				--size;
 				break;
-			case 2:
+			case 3:
 				std::cout << "The linked list: ";
 				print(head);
-				std::cout << "\n\n";
-				break;
-			case 3:
-				if (size == 0) {
-					std::cerr << "Nothing to reverse. Insert first.\n\n";
-					break;	
-				}
-				reverse(head, &head);
 				std::cout << std::endl;
 				break;
 			case 4:
+				if (size == 0) {
+					std::cerr << "Nothing to reverse. Insert first.\n";
+					break;	
+				}
+				reverse(head, &head);
+				break;
+			case 5:
 				del_list(head);
 				break;
 			default:
-				std::cerr << "Not a valid choice, try again.\n\n";
+				std::cerr << "Not a valid choice, try again.\n";
 				break;
 		}
 	}

@@ -61,77 +61,40 @@ int main() {
 		for (int i = 0; i < size; ++i)
 			std::cin >> a[i];
 		int choice = 0;
-		while (choice != 2) {
+		while (choice != 3) {
 			std::cout
-				<< "0. Insert element(s)\n"
-				<< "1. Delete element(s)\n"
-				<< "2. Exit" << std::endl
-				<< "Choose one (0, 1 or 2): ";
+				<< "1. Insert element(s)\n"
+				<< "2. Delete element(s)\n"
+				<< "3. Exit" << std::endl
+				<< "Choose one (1, 2 or 3): ";
 			std::cin >> choice;
 			std::cout << std::endl;
 			switch (choice) {
-				case 0:
-					while (choice != 2) {
+				case 1:
+					while (choice != 3) {
 						std::cout
-							<< "0. Insert element at end\n"
-							<< "1. Insert element at a given position\n"
-							<< "2. Go back" << std::endl
-							<< "Choose one (0, 1 or 2): ";
+							<< "1. Insert element at end\n"
+							<< "2. Insert element at a given position\n"
+							<< "3. Go back" << std::endl
+							<< "Choose one (1, 2 or 3): ";
 						std::cin >> choice;
 						std::cout << std::endl;
 						switch (choice) {
-							case 0:
+							case 1:
 								a = insert(a, size, size, alloc_size);
 								std::cout << "Element inserted at the end.\n"
 									<< "New array:";
 								print_array(a, size);
 								std::cout << std::endl;
 								break;
-							case 1:
+							case 2:
 								a = insert(a, size, position(size), alloc_size);
 								std::cout << "Element inserted at the given position.\n"
 									<< "New array:";
 								print_array(a, size);
 								std::cout << std::endl;
 								break;
-							case 2:
-								break;
-							default:
-								std::cerr << "Not a valid choice, try again." << std::endl;
-								break;
-						}
-					}
-					choice = 0;
-					break;
-				case 1:
-					while (choice != 2) {
-						std::cout
-							<< "0. Delete the last element\n"
-							<< "1. Delete element at a given position\n"
-							<< "2. Go back" << std::endl
-							<< "Choose one (0, 1 or 2): ";
-						std::cin >> choice;
-						std::cout << std::endl;
-						if (size == 0) {
-							std::cout << "There's nothing to delete." << std::endl;
-							choice = 2;
-						}
-						switch (choice) {
-							case 0:
-								a = del(a, size, size-1);
-								std::cout << "Last element deleted.\n"
-									<< "New array:";
-								print_array(a, size);
-								std::cout << std::endl;
-								break;
-							case 1:
-								a = del(a, size, position(size));
-								std::cout << "Element at the given position deleted.\n"
-									<< "New array:";
-								print_array(a, size);
-								std::cout << std::endl;
-								break;
-							case 2:
+							case 3:
 								break;
 							default:
 								std::cerr << "Not a valid choice, try again." << std::endl;
@@ -141,6 +104,43 @@ int main() {
 					choice = 0;
 					break;
 				case 2:
+					while (choice != 3) {
+						std::cout
+							<< "1. Delete the last element\n"
+							<< "2. Delete element at a given position\n"
+							<< "3. Go back" << std::endl
+							<< "Choose one (1, 2 or 3): ";
+						std::cin >> choice;
+						std::cout << std::endl;
+						if (size == 0) {
+							std::cout << "There's nothing to delete." << std::endl;
+							choice = 3;
+						}
+						switch (choice) {
+							case 1:
+								a = del(a, size, size-1);
+								std::cout << "Last element deleted.\n"
+									<< "New array:";
+								print_array(a, size);
+								std::cout << std::endl;
+								break;
+							case 2:
+								a = del(a, size, position(size));
+								std::cout << "Element at the given position deleted.\n"
+									<< "New array:";
+								print_array(a, size);
+								std::cout << std::endl;
+								break;
+							case 3:
+								break;
+							default:
+								std::cerr << "Not a valid choice, try again." << std::endl;
+								break;
+						}
+					}
+					choice = 0;
+					break;
+				case 3:
 					delete[] a;
 					break;
 				default:
