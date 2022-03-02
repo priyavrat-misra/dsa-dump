@@ -5,6 +5,10 @@ struct Node {
 	Node* next;
 };
 
+bool empty(Node* tos) {
+	return tos == NULL;
+}
+
 void push(Node** tos, int& e) {
 	Node* t = new Node;
 	t->data = e;
@@ -61,8 +65,12 @@ int main() {
 				}
 				break;
 			case 3:
-				std::cout << "Stack: ";
-				print(tos);
+				if (!empty(tos)) {
+					std::cout << "Stack: ";
+					print(tos);
+				} else {
+					std::cout << "Stack is empty.";
+				}
 				std::cout << std::endl;
 				break;
 			case 4:
