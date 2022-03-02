@@ -54,8 +54,7 @@ void reverse(Node* t, Node** head) {
 		return;
 	}
 	reverse(t->next, head);
-	Node* s = t->next;
-	s->next = t;
+	t->next->next = t;
 	t->next = NULL;
 }
 
