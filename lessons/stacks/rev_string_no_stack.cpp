@@ -1,4 +1,4 @@
-// reverse a string using stack
+// reverse a string without using stack
 // time complexity: O(n)
 // space complexity: O(1)
 #include <iostream>
