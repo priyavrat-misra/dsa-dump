@@ -1,3 +1,4 @@
+// queue implementation using array
 #include <iostream>
 #define QSIZE 10
 
