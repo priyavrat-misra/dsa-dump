@@ -2,13 +2,13 @@
 using namespace std;
 
 int main() {
-    int w;
-    float ac_bl;
-    cin >> w >> ac_bl;
-    if (w % 5 == 0 && w <= ac_bl - 0.5) {
-        cout << (ac_bl-w)-0.5;
-    } else {
-        cout << ac_bl;
-    }
+	int w;
+	float ac_bl;
+	cin >> w >> ac_bl;
+	if (w % 5 == 0 && w <= ac_bl - 0.5) {
+		cout << (ac_bl-w)-0.5;
+	} else {
+		cout << ac_bl;
+	}
 	return 0;
 }
