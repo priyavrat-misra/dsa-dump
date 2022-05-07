@@ -9,11 +9,21 @@ void printsc(std::vector<int> &v) {
 
 void printvec(std::vector<int> &v) {
 	// prints the elements
-	for (int elm: v)  // for-each
-		std::cout << elm << " ";
-	// is same as
-	// for (int i = 0; i < v.size(); ++i)
-	// 	std::cout << v[i] << " ";
+	for (int el: v)  // for-each
+		std::cout << el << " ";
+	/* is same as
+	* for (int i = 0; i < v.size(); ++i)
+	* 	std::cout << v[i] << " ";
+	*//* is same as
+	* for (std::vector<int>::iterator i = v.begin(); i != v.end(); ++i)
+	* 	std::cout << *i << " ";
+	*//* is same as
+	* for (auto i = v.begin(); i != v.end(); ++i)
+	* 	std::cout << *i << " ";
+	*/
+	// `auto` sets the type of the variable (`i`) same as
+	// whatever it's initializer (`v.begin()`) is returning
+	
 	std::cout << std::endl;
 }
 
@@ -54,7 +64,7 @@ int main(int argc, char const *argv[]) {
 
 	// can be initialized from an array
 	int arr[] = {5, 4, 3, 2, 1};
-	std::vector<int> v5 = {arr, arr + 3};
+	std::vector<int> v5 = {arr, arr + 4};
 	printvec(v5);
 	printsc(v5);
 	std::cout << std::endl;
@@ -71,9 +81,9 @@ int main(int argc, char const *argv[]) {
 	// comparing vectors element-wise
 	std::cout << (v3 == v5 ? "true" : "false") << std::endl;
 
-	// clearing vectors for reuse, allocated capacity isn't cleared
+	// clearing vectors for reuse
 	v.clear();
-	printsc(v);
+	printsc(v);  // note: allocated capacity wasn't deallocated
 	std::cout << (v.empty() ? "true" : "false") << std::endl;
 
 	return 0;
