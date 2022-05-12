@@ -70,7 +70,7 @@ int main(int argc, char const *argv[]) {
 	std::cout << std::endl;
 
 	// will have 1 at non-zero element positions
-	std::vector<bool> v6 = {v3.begin(), v3.end()};
+	std::vector<bool> v6 = {v3.begin(), v.end()};  // or v6(v3.begin(), v3.end());
 	for (bool elm: v6)
 		std::cout << elm << " ";
 	
