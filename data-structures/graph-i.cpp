@@ -21,7 +21,7 @@ class Graph {
 		void printAdjList() {
 			for (int i = 0; i < v; ++i) {
 				cout << i << " --> |";
-				for (int node : l[i])
+				for (const int& node : l[i])
 					cout << " " << node << " |";
 				cout << endl;
 			}

@@ -19,7 +19,7 @@ class Graph {
 		unordered_map<string, Node*> m;
 	public:
 		Graph(const vector<string>& cities) {
-			for (string city : cities)
+			for (const string& city : cities)
 				m[city] = new Node(city);
 		}
 
@@ -30,16 +30,16 @@ class Graph {
 		}
 
 		void printAdjList() {
-			for (auto row : m) {
+			for (const auto& row : m) {
 				cout << row.first << " --> |";
-				for (string neighbor : row.second -> neighbors)
+				for (const string& neighbor : row.second -> neighbors)
 					cout << " " << neighbor << " |";
 				cout << endl;
 			}
 		}
 
 		~Graph() {
-			for (pair<string, Node*> row : m)
+			for (const pair<string, Node*>& row : m)
 				delete row.second;
 		}
 };
