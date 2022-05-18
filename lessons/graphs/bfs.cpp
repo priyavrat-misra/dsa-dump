@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <string>
 #include <unordered_map>
 #include <vector>
 using namespace std;
@@ -8,6 +7,7 @@ using namespace std;
 class Node {
 	public:
 		int node_no;
+		bool is_visited = false;
 		vector<int> neighbors;
 		Node(const int& node_no) {
 			this -> node_no = node_no;
@@ -16,27 +16,23 @@ class Node {
 
 class Graph {
 	private:
-		int num_nodes;
-		unordered_map<int, Node*> m;
+		unordered_map<int, Node*> adj_list;
 	public:
 		Graph(const int& num_nodes) {
-			this -> num_nodes = num_nodes;
 			for (int node_no = 0; node_no < num_nodes; ++node_no)
-				m[node_no] = new Node(node_no);
+				adj_list[node_no] = new Node(node_no);
 		}
 
 		void addEdge(const int& a, const int& b, bool undir = true) {
-			m[a] -> neighbors.push_back(b);
+			adj_list[a] -> neighbors.push_back(b);
 			if (undir)
-				m[b] -> neighbors.push_back(a);
+				adj_list[b] -> neighbors.push_back(a);
 		}
 
 		void bfs(const int& source) {
 			queue<int> q;
-			vector<bool> is_visited(num_nodes, false);
-			
 			q.push(source);
-			is_visited[source] = true;
+			adj_list[source] -> is_visited = true;
 
 			cout << "BFS:";
 			while (!q.empty()) {
@@ -44,17 +40,17 @@ class Graph {
 				cout << " " << f;
 				q.pop();
 
-				for (const int& neighbor : m[f] -> neighbors)
-					if (!is_visited[neighbor]) {
+				for (const int& neighbor : adj_list[f] -> neighbors)
+					if (!adj_list[neighbor] -> is_visited) {
 						q.push(neighbor);
-						is_visited[neighbor] = true;
+						adj_list[neighbor] -> is_visited = true;
 					}
 			}
 			cout <<  endl;
 		}
 
 		~Graph() {
-			for (const pair<int, Node*>& node : m)
+			for (const pair<int, Node*>& node : adj_list)
 				delete node.second;
 		}
 };
@@ -68,5 +64,5 @@ int main() {
 	g.addEdge(4, 5);
 	g.addEdge(0, 4);
 	g.addEdge(3, 4);
-	g.bfs(1);
+	g.bfs(2);
 }
