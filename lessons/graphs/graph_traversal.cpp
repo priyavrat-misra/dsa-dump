@@ -34,7 +34,6 @@ class Graph {
 			q.push(source);
 			adj_list[source] -> is_visited = true;
 
-			cout << "BFS:";
 			while (!q.empty()) {
 				int f = q.front();
 				cout << " " << f;
@@ -46,7 +45,19 @@ class Graph {
 						adj_list[neighbor] -> is_visited = true;
 					}
 			}
-			cout <<  endl;
+		}
+
+		void dfs(const int& source) {
+			cout << " " << source;
+			adj_list[source] -> is_visited = true;
+			for (const int& neighbor : adj_list[source] -> neighbors)
+				if (!adj_list[neighbor] -> is_visited)
+					dfs(neighbor);
+		}
+
+		void clearVisited() {
+			for (const pair<int, Node*>& node : adj_list)
+				node.second -> is_visited = false;
 		}
 
 		~Graph() {
@@ -64,5 +75,15 @@ int main() {
 	g.addEdge(4, 5);
 	g.addEdge(0, 4);
 	g.addEdge(3, 4);
+	g.addEdge(2, 3);
+	
+	cout << "BFS:";
 	g.bfs(2);
+	cout << endl;
+
+	g.clearVisited();
+
+	cout << "DFS:";
+	g.dfs(2);
+	cout << endl;
 }
