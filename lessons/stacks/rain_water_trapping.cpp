@@ -30,8 +30,8 @@ int main() {
 		ans += (min(maxL[i], maxR[i]) - height[i]);
 
 	cout << ans << endl;
-	delete height;
-	delete maxL;
-	delete maxR;
+	delete[] height;
+	delete[] maxL;
+	delete[] maxR;
 
 }
