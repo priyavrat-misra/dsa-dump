@@ -15,7 +15,7 @@ int main() {
 		if (minH.size() > k)
 			minH.pop();
 	}
-	cout << "K largest elements:";
+	cout << k << " largest elements:";
 	while (!minH.empty()) {
 		cout << " " << minH.top();
 		minH.pop();
