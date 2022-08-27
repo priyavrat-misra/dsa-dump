@@ -1,5 +1,6 @@
 // https://www.codechef.com/problems/LGCD
-/* we know, a * b = LCM(a, b) * GCD(a, b)
+/**
+ * we know, a * b = LCM(a, b) * GCD(a, b)
  * => a * b = 2 * GCD(a, b) * GCD(a, b) --- (1)
  * a = c1 * GCD(a, b) --------------------- (2)
  * b = c2 * GCD(a, b) --------------------- (3)
@@ -10,6 +11,7 @@
  * or a/b = 2/1 => a = 2b
  * => to find # pairs with (x, 2x)
  */
+
 #include <iostream>
 #include <unordered_map>
 using namespace std;
